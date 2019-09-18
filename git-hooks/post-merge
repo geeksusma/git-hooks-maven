@@ -1,0 +1,17 @@
+#!/bin/bash
+exec < /dev/tty
+
+# Get the current branch name
+branch_name=$(git branch | grep "*" | sed "s/\* //")
+
+if [[ $branch_name != "master" ]]; then
+    exit 0
+fi
+
+# Replacing SNAPSHOT by RELEASE
+sed -i '' 's/SNAPSHOT/RELEASE/g' pom.xml
+
+# commit and push of the upgraded pom
+git add pom.xml
+git commit -m 'upgrading SNAPSHOT to next RELEASE'
+git push origin $branch_name
