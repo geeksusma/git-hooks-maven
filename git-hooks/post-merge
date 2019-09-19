@@ -15,3 +15,8 @@ sed -i '' 's/SNAPSHOT/RELEASE/g' pom.xml
 git add pom.xml
 git commit -m 'upgrading SNAPSHOT to next RELEASE'
 git push origin $branch_name
+
+# creating and pushing a new tag
+tag_version = $(sed -n 's:.*<version>\(.*\)</version>.*:\1:p' pom.xml)
+git tag -a v$tag_version
+git push origin v$tag_version
