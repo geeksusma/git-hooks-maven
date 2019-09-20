@@ -4,7 +4,7 @@
 
     <groupId>es.geeksusma</groupId>
     <artifactId>git-hooks</artifactId>
-    <version>1.3.1-SNAPSHOT</version>
+    <version>1.3.1-RELEASE</version>
 
     <name>git-hooks</name>
     <url>http://www.twitter.com/geeksusma</url>
