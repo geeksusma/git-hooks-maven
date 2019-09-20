@@ -1,0 +1,7 @@
+#!/bin/bash
+exec < /dev/tty
+
+#taking the actions to execute from the "pre-push-actions"
+
+input="git-hooks/pre-push-actions"
+while read line; do $line; done < $input; echo $line

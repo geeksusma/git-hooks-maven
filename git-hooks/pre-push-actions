@@ -1,0 +1,3 @@
+mvn clean test
+mvn test -P api-tests
+mvn test -P integration-tests
