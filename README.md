@@ -12,7 +12,9 @@ This project contains, under the git-hooks folder, a set of hooks that they migh
 ## Pre-requisites
 
 The hooks are just bash files, so they will only works for Unix/Linux/Mac (they were written using a MacBook Pro)
-The post-merge were designed for [Maven](https://www.apache.org/) projects, so they will look for a pom.xml in order to create tags or to upgrade versions. The pom added to this project is just for if you want to play with the hook before moving it to your project.
+The post-merge were designed for [Maven](https://www.apache.org/) projects, so they will look for a pom.xml in order to create tags or to upgrade versions.
+The pom added to this project is just for if you want to play with the hook before moving it to your project.
+The "StupidTest" is just to check the pre-push actions
 
 ## hooks:
 
@@ -32,9 +34,16 @@ Those steps were steps I had to do it manually when:
 If you have a CI/CD (for example with Jenkins) you can automatize those steps just ensuring you add a merge from your development branch to master.
 
 ***
+* pre-push
+***
+This hook will be fired when a push is executed locally. Then the hook will look for some actions defined in the "pre-push-actions" file. Now in that file you can find some mvn goals executions as running tests, all or just depending of a profile.
+Feel free of place there as many "pre push actions" as you need to verify your code before going to your remote repo
+
+If the action fails, the push will not be completed
+
+***
 * More hooks soon :)
 ***
-
 ## usage:
 
 Just add the git-hooks folder to your project at root level. And then execute the "init-hooks.sh" script to ensure the hooks have execution permissions
